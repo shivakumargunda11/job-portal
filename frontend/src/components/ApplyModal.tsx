@@ -16,12 +16,6 @@ interface ApplyModalProps {
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024 // 5 MB
 const ALLOWED_EXTS = ['.pdf', '.doc', '.docx']
-const ALLOWED_MIME_TYPES = [
-  'application/pdf',
-  'application/msword',
-  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-  'application/octet-stream',
-]
 
 function formatFileSize(bytes: number): string {
   if (bytes < 1024) return bytes + ' B'

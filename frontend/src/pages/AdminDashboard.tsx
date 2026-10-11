@@ -148,7 +148,8 @@ export default function AdminDashboard() {
                                   onClick={async () => {
                                     try {
                                       const res = await api.get(`/applications/${a.id}/resume`, { responseType: 'blob' })
-                                      const blob = new Blob([res.data], { type: res.headers['content-type'] || 'application/octet-stream' })
+                                      const contentType = typeof res.headers['content-type'] === 'string' ? res.headers['content-type'] : 'application/octet-stream'
+                                      const blob = new Blob([res.data], { type: contentType })
                                       const url = window.URL.createObjectURL(blob)
                                       const link = document.createElement('a')
                                       link.href = url

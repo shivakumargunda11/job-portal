@@ -3,6 +3,7 @@ import React, { createContext, useContext, useState, useCallback } from 'react'
 interface User {
   username: string
   fullName: string
+  email?: string
   roles: string[]
   token: string
 }

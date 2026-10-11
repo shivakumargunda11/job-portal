@@ -30,8 +30,9 @@ export default function RecruiterDashboard() {
       const res = await api.get(`/applications/${appId}/resume`, {
         responseType: 'blob',
       })
+      const contentType = typeof res.headers['content-type'] === 'string' ? res.headers['content-type'] : 'application/octet-stream'
       const blob = new Blob([res.data], {
-        type: res.headers['content-type'] || 'application/octet-stream',
+        type: contentType,
       })
       const downloadUrl = window.URL.createObjectURL(blob)
       const link = document.createElement('a')
